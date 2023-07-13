@@ -1,8 +1,26 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+enum GENDER {
+    MALE,
+    FEMALE,
+}
+defineProps<{
+    memberSingle: {
+        id: number;
+        name: string;
+        sex: GENDER;
+    };
+}>();
+</script>
 
 <template>
-    <div>
+    <div
+        :style="{
+            backgroundColor:
+                memberSingle.sex === GENDER.MALE ? '#226E6F' : '#6A1102',
+        }"
+    >
         <!-- #226E6F' : '#6A1102' -->
+        {{ memberSingle.name }}
     </div>
 </template>
 
